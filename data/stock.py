@@ -30,6 +30,7 @@ class Stock:
         # Gets the Current Price of a stock via API request
         current_price:float = 10.4 #temporary value
         return current_price
+    
     def five_day_history(self) -> list[float, float, float, float, float]:
         day5, day4, day3, day2, day1 = 0, 1, 2, 3, 4
         return [day5, day4, day3, day2, day1]
