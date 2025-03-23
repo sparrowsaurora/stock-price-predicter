@@ -1,7 +1,7 @@
 from termcolor import colored
+import matplotlib as plt
 
 class Formatting:
-
     def __init__(self):
         pass
     
@@ -28,4 +28,15 @@ class Formatting:
         # returns a coloured and signed version of change_percent
         return colored("+" + str(change_percent), "green") if change_percent >= 0 else colored("-" + str(change_percent), "red")
     
+    @staticmethod
+    def plot_graph():
+        raise NotImplementedError("Error: not yet implemented")
+        # plots graph with data from data.stock.month_history()
+        # data = [{date: 1, price: 10.64}, {date:2, price:11.23}]
+        # for date, price in data:
+            # plt.x = date; plt.y = price
     
+    @staticmethod
+    def create_graph():
+        # creates graph using plt
+        raise NotImplementedError("Error: not yet implemented")
