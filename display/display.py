@@ -1,24 +1,31 @@
 import tkinter as tk
-from functions import Functions
-# Create an instance of Functions
-functions = Functions()
+from display.functions import Functions
 
-# Create the main window
-root = tk.Tk()
+class Display:
+    def __init__(self):
+        pass
 
-# Define ticker before using it
-ticker = "AAPL"
+    @staticmethod
+    def main():
+        # Create an instance of Functions
+        functions = Functions()
 
-root.title(f"Stock > {ticker.upper()}")
-root.geometry("600x350")  # Set the window size X:Y
+        # Create the main window
+        root = tk.Tk()
 
-# Add a label
-label = tk.Label(root, text=f"{ticker.upper()}", font=("Arial", 16))
-label.pack(pady=20, anchor="nw")
+        # Define ticker before using it
+        ticker = "AAPL"
 
+        root.title(f"Stock > {ticker.upper()}")
+        root.geometry("600x350")  # Set the window size X:Y
 
-button = tk.Button(root, text="Change Ticker", command=lambda: functions.next_ticker(label))
-button.pack(pady=10)
+        # Add a label
+        label = tk.Label(root, text=ticker.upper(), font=("Arial", 16))
+        label.pack(pady=20, anchor="nw")
 
-# Start the GUI event loop
-root.mainloop()
+        # Update both label and window title
+        button = tk.Button(root, text="Change Ticker", command=lambda: functions.next_ticker(label, root))
+        button.pack(pady=10, anchor="nw")
+
+        # Start the GUI event loop
+        root.mainloop()
