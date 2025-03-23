@@ -36,7 +36,8 @@ class Stock:
         return [day5, day4, day3, day2, day1]
     
     def month_history(self) -> dict[int]:
-
+        # for date in history:
+            # add date: value
         history = {
             
         }
@@ -54,3 +55,4 @@ class Stock:
         cont = self.rawdata()
         print(cont[0])  # Ticker symbol
         print(f"-----------\n| {float(cont[1]):^8.2f} |\n-----------")  # Current price
+        
