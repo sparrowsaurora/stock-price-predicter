@@ -9,6 +9,7 @@ class Graph:
         Graph.ax.set_title("Stock Price History")
         Graph.ax.set_xlabel("Date")
         Graph.ax.set_ylabel("Price")
+        return Graph.fig
     
     @staticmethod
     def plot_graph():
@@ -37,8 +38,3 @@ class Graph:
     @staticmethod
     def show():
         plt.show()
-
-# Usage Example
-Graph.create_graph()  # Create an empty graph
-Graph.plot_graph()  # Add points and show graph
-Graph.show()  # Display the graph
