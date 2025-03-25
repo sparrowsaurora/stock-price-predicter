@@ -6,22 +6,20 @@ class Graph:
     def create_graph():
         """Creates an empty graph."""
         Graph.fig, Graph.ax = plt.subplots()  # Create figure and axis
-        Graph.ax.set_title("Stock Price History")
         Graph.ax.set_xlabel("Date")
-        Graph.ax.set_ylabel("Price")
+        Graph.ax.set_ylabel("Price (USD)")
         return Graph.fig
     
     @staticmethod
     def plot_graph():
         """Plots stock data onto the existing graph."""
-
-        data = Stock.month_history()
-        plt.plot(data.index, data["Close"], label="AAPL Stock Price")
-        plt.xlabel("Date")
-        plt.ylabel("Price (USD)")
-        plt.title("Apple Stock Price Over Past Month")
+        length = '6mo'
+        stock = Stock("AAPL")
+        data = stock.history(length)
+        plt.plot(data.keys(), data.values(), label="AAPL Stock Price")
+        plt.title(f"Apple Stock Price Over Past {length}")
         plt.legend()
-        plt.show()
+
         # data = {
         #     1: 10.64, 2: 10.75, 3: 10.92, 4: 10.80, 5: 10.95,
         #     6: 11.10, 7: 11.05, 8: 11.23, 9: 11.35, 10: 11.50,
