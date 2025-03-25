@@ -1,6 +1,5 @@
 import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import matplotlib.pyplot as plt
 from display.functions import Functions
 from display.graph import Graph
 

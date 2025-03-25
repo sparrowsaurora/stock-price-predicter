@@ -35,13 +35,12 @@ class Stock:
         day5, day4, day3, day2, day1 = 0, 1, 2, 3, 4
         return [day5, day4, day3, day2, day1]
     
-    def month_history(self) -> dict[int]:
-        # for date in history:
-            # add date: value
-        history = {
-            
-        }
-        return history
+    def month_history(self) -> dict:
+        stock = yf.Ticker(self.ticker.upper())
+        history = stock.history(period="1mo")
+
+        # Convert to dictionary {date: closing price}
+        return {str(date.date()): round(price, 2) for date, price in zip(history.index, history["Close"])}
     
     def rawdata(self) -> list[str, float, list[float, float, float, float, float], int]:
         #returns a list of all data in a raw format
