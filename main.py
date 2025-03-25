@@ -8,7 +8,7 @@ from display.display import Display
 
 stock = Stock("aapl")
 
-print(stock.month_history())
+Formatting.print_history(stock.history('1mo'))
 
 # stock = yf.Ticker("AAPL")  # Replace "AAPL" with any stock ticker symbol
 # info = stock.history(period="1mo")  # Fetch general info about the stock

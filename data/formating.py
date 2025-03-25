@@ -26,5 +26,9 @@ class Formatting:
     def percent_styling(change_percent) -> str:
         # returns a coloured and signed version of change_percent
         return colored("+" + str(change_percent), "green") if change_percent >= 0 else colored("-" + str(change_percent), "red")
-
-
+    
+    @staticmethod
+    def print_history(dict: dict) -> None:
+        for date, price in dict.items():
+            print(f"Date: {date}, Price: {price}")
+            
