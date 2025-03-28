@@ -27,12 +27,16 @@ class Display:
 
         def update_ticker(label, root):
             self.ticker = self.functions.next_update_ticker(label, root)
+            Graph.clear()
+            Graph.plot_graph(self.ticker)
+            print("at update_ticker")
 
         # Update both label and window title
         button = tk.Button(root, text="Change Ticker", command=lambda: update_ticker(label, root))
         button.pack(pady=10, anchor="nw")
 
         Graph.create_graph()  # Create an empty graph
+        print("at create_graph")
 
         Graph.plot_graph(self.ticker)  # Plot the stock data
 

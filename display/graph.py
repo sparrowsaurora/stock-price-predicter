@@ -4,6 +4,7 @@ from data.stock import Stock
 class Graph:
     @staticmethod
     def create_graph():
+        print("creating graph")
         """Creates an empty graph."""
         Graph.fig, Graph.ax = plt.subplots()  # Create figure and axis
         Graph.ax.set_xlabel("Date")
@@ -13,11 +14,13 @@ class Graph:
     @staticmethod
     def plot_graph(ticker):
         """Plots stock data onto the existing graph."""
+        print("plotting graph")
+        print("this step takes a fucting while from the api call")
         length = '6mo'
         stock = Stock(ticker)
         data = stock.history(length)
         plt.plot(data.keys(), data.values(), label=f"{ticker} Stock Price")
-        plt.title(f"Apple Stock Price Over Past {length}")
+        plt.title(f"{ticker} Stock Price Over Past {length}")
         plt.legend()
 
         # data = {
@@ -44,4 +47,9 @@ class Graph:
     @staticmethod
     def show():
         plt.show()
+
+    @staticmethod
+    def clear():
+        Graph.fig.clear()
+        print("at clear function")
 
