@@ -11,12 +11,12 @@ class Graph:
         return Graph.fig
     
     @staticmethod
-    def plot_graph():
+    def plot_graph(ticker):
         """Plots stock data onto the existing graph."""
         length = '6mo'
-        stock = Stock("AAPL")
+        stock = Stock(ticker)
         data = stock.history(length)
-        plt.plot(data.keys(), data.values(), label="AAPL Stock Price")
+        plt.plot(data.keys(), data.values(), label=f"{ticker} Stock Price")
         plt.title(f"Apple Stock Price Over Past {length}")
         plt.legend()
 
