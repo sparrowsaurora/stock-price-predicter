@@ -36,7 +36,12 @@ class Stock:
         length = str(length)
         history = stock.history(period=length)
         # Convert to dictionary {date: closing price}
-        return {str(date.date()): round(price, 2) for date, price in zip(history.index, history["Close"])}
+        data = {}
+        for date, price in zip(history.index, history["Close"]):
+            date = str(date.date())[5:]
+            value = round(price, 2)
+            data[date] = value
+        return data
     
     def rawdata(self) -> list[str, float, list[float, float, float, float, float], int]:
         #returns a list of all data in a raw format

@@ -16,7 +16,7 @@ class Graph:
         """Plots stock data onto the existing graph."""
         print("plotting graph")
         print("this step takes a fucting while from the api call")
-        length = '6mo'
+        length = '1mo'
         stock = Stock(ticker)
         data = stock.history(length)
         plt.plot(data.keys(), data.values(), label=f"{ticker} Stock Price")

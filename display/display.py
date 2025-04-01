@@ -19,11 +19,11 @@ class Display:
         
 
         root.title(f"Stock > {self.ticker.upper()}")
-        root.geometry("800x600")  # Adjusted window size to fit the graph
+        root.geometry("1400x600")  # Adjusted window size to fit the graph
 
         # Add a label
         label = tk.Label(root, text=self.ticker.upper(), font=("Arial", 16))
-        label.pack(pady=20, anchor="nw")
+        label.pack(pady=20)
 
         def update_ticker(label, root):
             self.ticker = self.functions.next_update_ticker(label, root)
@@ -33,7 +33,7 @@ class Display:
 
         # Update both label and window title
         button = tk.Button(root, text="Change Ticker", command=lambda: update_ticker(label, root))
-        button.pack(pady=10, anchor="nw")
+        button.pack(pady=10)
 
         Graph.create_graph()  # Create an empty graph
         print("at create_graph")
