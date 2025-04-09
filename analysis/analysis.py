@@ -1,6 +1,6 @@
 class analysis:
-    def __init__(self):
-        pass
-
-    def add_prediction_data(data: dict) -> dict:
-        
+    def add_prediction_data(data) -> dict:
+        '''
+            takes neural network's data and converts it to a dict
+        '''
+    

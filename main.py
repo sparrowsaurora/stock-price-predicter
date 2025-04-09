@@ -5,6 +5,8 @@ def main() -> None:
     display = Display()
     display.main()
 
+main()
+
 # print(Formatting.basic_stats("APL", 10.63, 500, 1.08))
 
 # stock = Stock("aapl")

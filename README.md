@@ -1,5 +1,9 @@
 # Stock Price Prediction Algorithm
 
+Currently refactoring project
+
+### note:
+
 _This is a project that will be used as the base for a much larger algorithm to predict stock prices in a portfolio_
 
 ## File Structure

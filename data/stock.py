@@ -1,4 +1,5 @@
 import yfinance as yf
+from tools.tools import Tools
 # https://yfinance-python.org/reference/yfinance.stock.html
 
 class Stock:
@@ -31,6 +32,7 @@ class Stock:
         current_price:float = 10.4 #temporary value
         return current_price
     
+    @Tools.timer
     def history(self, length) -> dict:
         stock = yf.Ticker(self.ticker.upper())
         length = str(length)

@@ -57,5 +57,6 @@ class Graph:
 
     @staticmethod
     def add_prediction(data: dict) -> dict:
-        new_dict = 
-        return new_dict
+        '''
+            adds prediction data to graph in the form of multiple lines that come off in the form of percentages. in a "--" style.
+        '''
