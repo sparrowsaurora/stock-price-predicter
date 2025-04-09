@@ -19,6 +19,8 @@ class Graph:
         length = '1mo'
         stock = Stock(ticker)
         data = stock.history(length)
+        # adding Predictions
+        data = Graph.add_prediction(data)
         plt.plot(data.keys(), data.values(), label=f"{ticker} Stock Price")
         plt.title(f"{ticker} Stock Price Over Past {length}")
         plt.legend()
@@ -53,3 +55,7 @@ class Graph:
         Graph.fig.clear()
         print("at clear function")
 
+    @staticmethod
+    def add_prediction(data: dict) -> dict:
+        new_dict = 
+        return new_dict
