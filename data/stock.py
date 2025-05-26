@@ -1,5 +1,9 @@
 import yfinance as yf
 from tools.tools import Tools
+from tabulate import tabulate
+
+'''REFOMAT TO USE ALPACA.MARKETS TRADING API'''
+
 # https://yfinance-python.org/reference/yfinance.stock.html
 
 class Stock:
@@ -10,15 +14,12 @@ class Stock:
         #     - Ticker: the stock's ticker symbol - string
         #     - Shares_owned: The number of shares the user owns in the stock - int
         #     - invested: The ammount of money initially invested - float
-                
         self.ticker = ticker.upper()
         self.shares_owned = shares_owned
         self.invested = invested
     
-    def __str__(self) -> str:
-        # Converts the stock item with the data to a String item.
-
-        # Params:
+    def __repr__(self) -> None:
+         # Params:
         #     - self: gets basic data already related to the stock - [str, int, float]
         # Functions:
         #     - current_price: gets current price with an api - float
@@ -54,6 +55,7 @@ class Stock:
 
     def display_formatted(self):
         """Formats and prints the stock data."""
+        # Tabulate????
         cont = self.rawdata()
         print(cont[0])  # Ticker symbol
         print(f"-----------\n| {float(cont[1]):^8.2f} |\n-----------")  # Current price

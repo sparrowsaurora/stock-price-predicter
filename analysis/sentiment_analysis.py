@@ -15,9 +15,12 @@ class Sentiment:
         print(self.sentiment)
             
     def get_sentiment(self):
+        '''
+            Get sentiment for all news about stock from twitter or reddit.
+        '''
         news = []
     
-    def get_sentiment(self):
+    def return_sentiment(self):
         return self.sentiment
     
     
