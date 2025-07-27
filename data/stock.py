@@ -1,6 +1,6 @@
-import yfinance as yf
+# import yfinance as yf
 from tools.tools import Tools
-from tabulate import tabulate
+from data.formating import Formatting
 
 '''REFOMAT TO USE ALPACA.MARKETS TRADING API'''
 
@@ -20,24 +20,29 @@ class Stock:
     
     def __repr__(self) -> None:
          # Params:
-        #     - self: gets basic data already related to the stock - [str, int, float]
+        #     - self: gets basic data already related to the stock -> [str, int, float]
         # Functions:
-        #     - current_price: gets current price with an api - float
-
+        #     - current_price: gets current price with an api -> float
         current_price = self.get_current_price()
         worth = current_price * self.shares_owned
-        return f"Ticker: {self.ticker} -- Curr: {current_price}\nOwned: {self.shares_owned} -- Worth: {worth}"
+        return f"{self.ticker}" + "{" + f"Curr: {current_price}\nOwned: {self.shares_owned}, Worth: {worth}" + "}"
+    
+    # ===========================================================================================================
 
     def get_current_price(self) -> float:
         # Gets the Current Price of a stock via API request
-        current_price:float = 10.4 #temporary value
+        current_price: float = 10.4 # temporary value ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         return current_price
     
     @Tools.timer
     def history(self, length) -> dict:
-        stock = yf.Ticker(self.ticker.upper())
+        raise NotImplementedError("we havent gotten this data from the api")
+    
+        # prep data to call api
+        stock = yf.Ticker(self.ticker)
         length = str(length)
         history = stock.history(period=length)
+
         # Convert to dictionary {date: closing price}
         data = {}
         for date, price in zip(history.index, history["Close"]):
@@ -45,18 +50,21 @@ class Stock:
             value = round(price, 2)
             data[date] = value
         return data
+
+    @Tools.timer
+    def get_change_percent(self) -> float:
+        raise NotImplementedError("we havent gotten this data from the api")
+        return change_percent
     
-    def rawdata(self) -> list[str, float, list[float, float, float, float, float], int]:
+    def rawdata(self) -> list[str, float, int, float]:
         #returns a list of all data in a raw format
         current_price = self.get_current_price()
-        d5, d4, d3, d2, d1 = self.five_day_history()
-        return [self.ticker, current_price, [d5, d4, d3, d2, d1] ,self.shares_owned]
-    
+        change_percent = self.get_change_percent()
+        return [self.ticker, current_price, self.shares_owned, change_percent]
+    # [ticker.upper(), f"{current_price:.2f}", f"{shares_owned:,}", change_percent]
 
     def display_formatted(self):
         """Formats and prints the stock data."""
-        # Tabulate????
         cont = self.rawdata()
-        print(cont[0])  # Ticker symbol
-        print(f"-----------\n| {float(cont[1]):^8.2f} |\n-----------")  # Current price
+        return Formatting.stock_base(cont[0], cont[1])
         

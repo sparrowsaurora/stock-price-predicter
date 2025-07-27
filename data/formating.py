@@ -11,10 +11,14 @@ class Formatting:
         middle = f"│{data:^8}│"
         bottom = f"+{'─' * len(data)}+"
         return f"{top}\n{middle}\n{bottom}"
-
     
     @staticmethod
-    def basic_stats(self, ticker, current_price, shares_owned, change_percent) -> str:
+    def stock_base(ticker: str, price: float) -> str:
+        data = [[ticker, f"{price:.2f}"]]
+        return tabulate(data, tablefmt="grid")
+    
+    @staticmethod
+    def basic_stats(self, ticker: str, current_price: float | int, shares_owned: int, change_percent: str) -> str:
         # a static method; returns all the basic information in a formatted way
         # Uses
         #   Formatting._percent_styleing to color "change-percent param"
@@ -27,12 +31,13 @@ class Formatting:
         headers = ["Ticker", "Price", "Shares", "Change %"]
 
         change_percent = self._percent_styling(change_percent)
+        current_price = float(current_price)
         data = [
             [ticker.upper(), f"{current_price:.2f}", f"{shares_owned:,}", change_percent]
         ]
         return tabulate(data, headers=headers, tablefmt="grid")
     
-    def _percent_styling(change_percent) -> str:
+    def _percent_styling(change_percent: int | float) -> str:
         # returns a coloured and signed version of change_percent
         if change_percent == 0:
             return colored(f"/ {change_percent}", "dark_grey")
