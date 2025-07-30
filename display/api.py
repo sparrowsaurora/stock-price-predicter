@@ -1,33 +1,36 @@
-# Run with: uvicorn display/api:app --reload
+# Run with: uvicorn display.api:app --reload
 
 from data.stock import Stock
 
 
 
+from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi import FastAPI
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="display/pages/static"), name="static")
 
-@app.get("/", response_class=HTMLResponse)
+page_route = "display/pages/"
+
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
 def read_root():
     # make a graph image and project summary root page?
-    with open("display/pages/index.html", "r", encoding="utf-8") as f:
+    with open(page_route+"index.html", "r", encoding="utf-8") as f:
         return f.read()
 
-@app.get("/about", response_class=HTMLResponse)
+@app.get("/about", response_class=HTMLResponse, include_in_schema=False)
 def read_root():
     # make a graph image and project summary root page?
-    with open("display/pages/about.html", "r", encoding="utf-8") as f:
+    with open(page_route+"about.html", "r", encoding="utf-8") as f:
         return f.read()
 
 # GET endpoints
 @app.get("/{ticker}/")
 def get_stock(ticker: str):
     stock = Stock.get_stock_by_ticker(ticker)
-    response = {"":""}
+    # returns graph data and signal
+    response = {"signal":"stock.signal"}
     return response
 
 @app.get("/{ticker}/raw/")
@@ -38,7 +41,7 @@ def get_stock(ticker: str):
         "ticker": stock.ticker,
         "shares": stock.shares_owned,
         "current_price": stock.current_price,
-        "signal": stock.signal
+        "signal": "stock.signal"
         }
     return response
 

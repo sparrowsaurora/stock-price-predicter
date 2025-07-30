@@ -5,7 +5,10 @@
     font-optical-sizing: auto;
     /* font-weight: <weight>; */
     font-style: normal;
-    text-align: center;
+}
+
+a {
+    color: steelblue;
 }
 
 body {
@@ -21,8 +24,48 @@ main {
     border-radius: 8px;
     /* ++++++++++++++++++++++++++++ */
     width: 40%;
+    text-align: center;
 }
 
+/* HEADINGS */
 h1 {
     color: #A9B1D6;
+}
+
+/* SUBHEADDINGS */
+h2 {
+    color: #7AA2F7;
+}
+
+/* ROUTES */
+.route {
+    /* route has underline */
+    font-size: larger;
+    text-decoration: underline;
+    padding-left: 50px;
+    text-align: left;
+    margin: 3px;
+    color: #58DACA;
+    letter-spacing: 1px;
+}
+
+.box {
+    /* 
+        json and API stuff in box. 
+        10 padding. darkgrey bg and small rounded corners 
+    */
+    text-align: left;
+    background: #3d3d3e;
+    color: #ffffff;
+    padding: 10px;
+    padding-left: 30px;
+    margin: 10px 40px;
+    border-radius: 5px;
+}
+
+.dev-profile-links {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 70px;
 }
