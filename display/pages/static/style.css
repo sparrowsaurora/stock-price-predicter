@@ -43,7 +43,7 @@ h2 {
     /* route has underline */
     font-size: larger;
     text-decoration: underline;
-    /* padding-left: 50px; */
+    padding-left: 50px;
     text-align: left;
     margin: 3px;
     color: #58DACA;
@@ -60,12 +60,17 @@ h2 {
     color: #ffffff;
     padding: 10px;
     padding-left: 30px;
-    margin: 10px 40px;
+    margin: 10px 20px;
     border-radius: 5px;
 }
 
 .general {
-    padding-left: 50px;
+    padding: 0 50px;
+    margin-bottom: 10px;
+}
+
+.general-text {
+    color: #a9b1d6b5;
 }
 
 .dev-profile-links {
@@ -79,13 +84,24 @@ h2 {
     /* route has underline */
     font-size: larger;
     text-decoration: underline;
-    /* padding-left: 50px; */
     text-align: left;
     margin: 3px;
-    color: wheat;
+    color: #f5deb3b4;
     letter-spacing: 1px;
 }
 
+.note {
+    border-top: 1px dashed #3d3d3e;
+    margin-top: 5px;
+    padding-top: 15px;
+    color: #5e616d;
+}
+
+.note>span {
+    color: #E64A19;
+}
+
+/* FOOTER */
 .copyright {
     color: #a9b1d684;
 
