@@ -25,6 +25,7 @@ main {
     /* ++++++++++++++++++++++++++++ */
     width: 40%;
     text-align: center;
+    padding: 12px 0px;
 }
 
 /* HEADINGS */
@@ -42,7 +43,7 @@ h2 {
     /* route has underline */
     font-size: larger;
     text-decoration: underline;
-    padding-left: 50px;
+    /* padding-left: 50px; */
     text-align: left;
     margin: 3px;
     color: #58DACA;
@@ -63,18 +64,22 @@ h2 {
     border-radius: 5px;
 }
 
+.general {
+    padding-left: 50px;
+}
+
 .dev-profile-links {
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding-left: 70px;
+    padding-left: 20px;
 }
 
 .dev-profile>p {
     /* route has underline */
     font-size: larger;
     text-decoration: underline;
-    padding-left: 50px;
+    /* padding-left: 50px; */
     text-align: left;
     margin: 3px;
     color: wheat;

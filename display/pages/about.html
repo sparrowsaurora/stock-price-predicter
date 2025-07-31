@@ -13,7 +13,31 @@
             <h1>About</h1>
             <!-- PROJECT INFO -->
             <h2>This Project</h2>
-            <article class="general"></article>
+            <article class="general">
+                <p>
+                    This project delivers comprehensive stock data analysis by
+                    combining historical prices, real-time market data,
+                    technical indicators, and relevant news sources.
+                </p>
+                <p>
+                    A Long Short-Term Memory (LSTM) neural network is used to
+                    generate short-term forecasts, estimating the probability of
+                    price movement over a 5-business-day window. Predictions are
+                    visualized through interactive charts and accompanied by
+                    detailed, text-based summaries.
+                </p>
+                <p>
+                    The system is built using Python, FastAPI, and the Alpaca
+                    Markets API. Predictions are tested via paper trading to
+                    simulate live performance.
+                </p>
+
+                <p class="note">
+                    # This project serves as the foundation for a larger system
+                    designed to autonomously trade and manage multi-asset
+                    portfolios.
+                </p>
+            </article>
 
             <!-- DEV INFO -->
             <h2>The Devs</h2>
@@ -33,7 +57,9 @@
             </article>
         </main>
         <footer>
-            <p class="copyright">&copy; 2025 | sparrows_aurora</p>
+            <p class="copyright">
+                &copy; <span id="year"></span> | sparrows_aurora
+            </p>
         </footer>
     </body>
 </html>
