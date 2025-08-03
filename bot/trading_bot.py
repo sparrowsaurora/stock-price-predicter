@@ -26,23 +26,7 @@ class TradingBot:
             print(f"\t{key}: {value}")
         if not self.portfolio:
             print("\t(empty)")
-
-tb = TradingBot()
-
-tb.buy("AAPL", 2)
-tb.buy("FUCK", 5)
-tb.show_portfolio()
-tb.buy("AAPL", 2)
-tb.show_portfolio()
-try:
-    tb.sell("AAPL", 5)
-except ValueError as e:
-    print(e)
-tb.show_portfolio()
-tb.sell("AAPL", 3)
-tb.show_portfolio()
-tb.sell("AAPL", 1)
-tb.show_portfolio()
-
-
-
+    
+    @property
+    def data(self):
+        return [f"{key}: {value}" for key, value in self.portfolio.items()]
