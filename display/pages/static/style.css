@@ -48,6 +48,7 @@ h2 {
     margin: 3px;
     color: #58DACA;
     letter-spacing: 1px;
+    margin-top: 20px;
 }
 
 .box {
@@ -69,6 +70,12 @@ h2 {
     margin-bottom: 10px;
 }
 
+.general-link {
+    padding: 0 50px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
 .general-text {
     color: #a9b1d6b5;
 }
@@ -78,6 +85,14 @@ h2 {
     flex-direction: column;
     text-align: left;
     padding-left: 20px;
+}
+
+.dev-profile-links>p {
+    margin: 0;
+    /* color: #46468d; */
+    /* color: #51AC6A; */
+    color: #67c06ace;
+    /* color: #9ECE6A; */
 }
 
 .dev-profile>p {
@@ -101,8 +116,28 @@ h2 {
     color: #E64A19;
 }
 
+.route-note {
+    margin: 5px;
+    padding: 0 50px;
+    color: #5e616d;
+    text-align: left;
+}
+
+.route-note>span {
+    color: #E64A19;
+}
+
+.about-link {
+    margin-top: 30px;
+    color: #f5deb3b4;
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+
 /* FOOTER */
 .copyright {
     color: #a9b1d684;
 
 }
+
+/* add @medias' to widen the borders */

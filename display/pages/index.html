@@ -12,10 +12,43 @@
         <main>
             <h1>Stock Price Predictor API</h1>
 
-            <h2>routes</h2>
+            <h2>GET Routes</h2>
             <article class="general">
-                <p class="route">main</p>
-                <div class="box">h1</div>
+                <div class="">
+                    <p class="route">/&lt;ticker&gt;/</p>
+                    <p class="route-note">
+                        <span>#</span> Route Returns Signal and graph data
+                    </p>
+                    <div class="box"></div>
+                </div>
+                <div class="">
+                    <p class="route">/&lt;ticker&gt;/raw</p>
+                    <p class="route-note">
+                        <span>#</span> Route Returns all raw data pre-analysis
+                    </p>
+                    <div class="box"></div>
+                </div>
+                <div class="">
+                    <p class="route">/&lt;ticker&gt;/pretty</p>
+                    <p class="route-note">
+                        <span>#</span> Route Returns returns a nice, human
+                        readable verison on all data including the signal, and
+                        graph data
+                    </p>
+                    <div class="box"></div>
+                </div>
+            </article>
+            <h2>POST Routes</h2>
+            <article class="general">
+                <div class="">
+                    <p class="route">/</p>
+                    <div class="box"></div>
+                </div>
+            </article>
+            <article class="general-link">
+                <a href="/about" class="about-link"
+                    >Want to know About the project?</a
+                >
             </article>
         </main>
         <footer>

@@ -11,18 +11,18 @@ from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="display/pages/static"), name="static")
 
-page_route = "display/pages/"
+htmlpage_route = "display/pages/"
 
 @app.get("/", response_class=HTMLResponse, include_in_schema=False)
 def read_root():
     # make a graph image and project summary root page?
-    with open(page_route+"index.html", "r", encoding="utf-8") as f:
+    with open(htmlpage_route+"index.html", "r", encoding="utf-8") as f:
         return f.read()
 
 @app.get("/about", response_class=HTMLResponse, include_in_schema=False)
 def read_root():
     # make a graph image and project summary root page?
-    with open(page_route+"about.html", "r", encoding="utf-8") as f:
+    with open(htmlpage_route+"about.html", "r", encoding="utf-8") as f:
         return f.read()
 
 # GET endpoints
@@ -49,6 +49,3 @@ def get_stock(ticker: str):
 def get_stock(ticker: str):
     stock = Stock.get_stock_by_ticker(ticker)
     return stock.display_formatted
-
-
-
