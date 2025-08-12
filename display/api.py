@@ -25,7 +25,7 @@ def read_root():
     with open(htmlpage_route+"about.html", "r", encoding="utf-8") as f:
         return f.read()
 
-# GET endpoints
+# GET Endpoints
 @app.get("/{ticker}/")
 def get_stock(ticker: str):
     stock = Stock.get_stock_by_ticker(ticker)
@@ -34,7 +34,7 @@ def get_stock(ticker: str):
     return response
 
 @app.get("/{ticker}/raw/")
-def get_stock(ticker: str):
+def get_stock_raw(ticker: str):
     # stock's data in raw format
     stock = Stock.get_stock_by_ticker(ticker)
     response = {
@@ -46,6 +46,18 @@ def get_stock(ticker: str):
     return response
 
 @app.get("/{ticker}/pretty/")
-def get_stock(ticker: str):
+def get_stock_pretty(ticker: str):
     stock = Stock.get_stock_by_ticker(ticker)
     return stock.display_formatted
+
+# POST Endpoints
+
+@app.post('/{account}/add/')
+def add_stock_to_portfolio(account: str, ticker: str, quantity: int):
+    raise NotImplementedError
+    return {"message":f"{ticker} Added.", "quantity": f"{quantity}"}
+
+@app.post('/{account}/rem/')
+def rem_stock_from_portfolio(account: str, ticker: str, quantity: int):
+    raise NotImplementedError
+    return {"message":f"{ticker} Removed.", "quantity": f"{quantity}"}
