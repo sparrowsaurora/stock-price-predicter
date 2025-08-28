@@ -21,3 +21,13 @@ This data is then displayed in a Graph and text information, and tested via pape
 5. Use scores to make predictions of price and longevity of a stock, and an idea for it's future trajectory.
 6. Show data in a meaningful way (terminal + webapi)
 7. test using paper trading bot using these signals
+
+### Planned Inclusions
+
+- Broader use of technical indicators (e.g., RSI, MACD, EMA, Bollinger Bands)
+- Risk management tools (stop-loss, position sizing, volatility filters)
+- Signal validation with model confidence scoring
+- Automated alerts for trade signals
+- Portfolio rebalancing and capital allocation strategies
+- Backtesting framework for historical performance evaluation
+- Modular data pipeline for ingestion, transformation, and feature engineering
