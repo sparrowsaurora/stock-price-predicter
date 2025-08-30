@@ -12,10 +12,10 @@ class Tools:
         return wrapper
     
     @staticmethod
-    def log(msg: str):
+    def log(msg: str, log_type: str = "LOG"):
         # open file in context manager
         with open("logs.txt", "a") as f:
             # write to file on new line
-            f.write(f"{ctime()}: {msg}\n")
+            f.write(f"{ctime()}\t{log_type.upper()}: {msg}\n")
 
 Tools.log("testing log2")
